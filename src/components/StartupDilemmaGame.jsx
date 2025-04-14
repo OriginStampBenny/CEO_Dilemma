@@ -107,7 +107,7 @@ const gameData = {
       { text: "Status Quo beibehalten", score: -1, next: "4aa" }
     ]
   },
-  // Runde 4 (Beispielhafte Knoten, weitere können ergänzt werden)
+  // Runde 4 – Ergänzung der fehlenden Verzweigungen
   "4a": {
     question: "Runde 4a: Die Expansion zeigt erste Erfolge. Wie planst du weiter?",
     options: [
@@ -132,7 +132,105 @@ const gameData = {
       { text: "Kompletten Kurswechsel vornehmen", score: -1, next: "5i" }
     ]
   },
-  // Runde 5 (Finale Knoten)
+  "4d": {
+    question: "Runde 4d: Flexible Regelanpassungen zeigen Wirkung. Wie geht es weiter?",
+    options: [
+      { text: "Neue Geschäftsfelder erschließen", score: 2, next: "5j" },
+      { text: "Das bestehende Geschäft ausbauen", score: 1, next: "5k" },
+      { text: "Innovationsprojekte initiieren", score: 2, next: "5l" }
+    ]
+  },
+  "4e": {
+    question: "Runde 4e: Das starre Festhalten an Regeln führt zu Frust. Was machst du?",
+    options: [
+      { text: "Kompromisse eingehen", score: 1, next: "5m" },
+      { text: "Strenge Maßnahmen einleiten", score: -2, next: "5n" },
+      { text: "Teamwork fördern", score: 2, next: "5o" }
+    ]
+  },
+  "4f": {
+    question: "Runde 4f: Team-Feedback hat positive Änderungen bewirkt. Wie reagierst du?",
+    options: [
+      { text: "Feedback in neue Richtlinien umsetzen", score: 2, next: "5p" },
+      { text: "Teamentwicklung vorantreiben", score: 1, next: "5q" },
+      { text: "Kurzfristige Erfolge feiern", score: 1, next: "5r" }
+    ]
+  },
+  "4g": {
+    question: "Runde 4g: Der motivierende Impuls wirkt – aber es steht noch viel an. Wie weiter?",
+    options: [
+      { text: "Neue Innovationsprojekte starten", score: 2, next: "5a" },
+      { text: "Marktanalysen intensivieren", score: 1, next: "5b" },
+      { text: "Risiken minimieren", score: -1, next: "5c" }
+    ]
+  },
+  "4h": {
+    question: "Runde 4h: Verantwortung delegieren zeigt Wirkung. Was machst du als Nächstes?",
+    options: [
+      { text: "Effizienzsteigerung vorantreiben", score: 2, next: "5d" },
+      { text: "Kosten senken", score: 1, next: "5e" },
+      { text: "Innovativ bleiben", score: 1, next: "5f" }
+    ]
+  },
+  "4i": {
+    question: "Runde 4i: Ignoranz führt zu Problemen. Wie versuchst du das Ruder rumzureißen?",
+    options: [
+      { text: "Schnell reagieren", score: 2, next: "5g" },
+      { text: "Strategie anpassen", score: 1, next: "5h" },
+      { text: "Externe Hilfe holen", score: 1, next: "5i" }
+    ]
+  },
+  // Fehlende Knoten aus Runde 3h ergänzen:
+  "4v": {
+    question: "Runde 4v: Fusionen und Akquisitionen bringen frischen Wind ins Unternehmen. Wie weiter?",
+    options: [
+      { text: "Neue Märkte erobern", score: 2, next: "5j" },
+      { text: "Bestehende Firmen restrukturieren", score: 1, next: "5k" },
+      { text: "Aggressiv akquirieren", score: -1, next: "5l" }
+    ]
+  },
+  "4w": {
+    question: "Runde 4w: Organisches Wachstum stärkt das Unternehmen nachhaltig. Wie reagierst du?",
+    options: [
+      { text: "Weiter auf organisches Wachstum setzen", score: 2, next: "5m" },
+      { text: "In neue Technologien investieren", score: 2, next: "5n" },
+      { text: "Risiken minimieren", score: -1, next: "5o" }
+    ]
+  },
+  "4x": {
+    question: "Runde 4x: Aufbau einer strategischen Reserve stabilisiert den Betrieb. Wie geht es weiter?",
+    options: [
+      { text: "Reserve für zukünftige Investitionen nutzen", score: 1, next: "5p" },
+      { text: "Reservierende Liquidität erhöhen", score: 1, next: "5q" },
+      { text: "Mit Reserve Risiken eingehen", score: -1, next: "5r" }
+    ]
+  },
+  // Zusätzliche Knoten für Runde 3i:
+  "4y": {
+    question: "Runde 4y: Alternative Investitionsoptionen eröffnen neue Perspektiven. Wie weiter?",
+    options: [
+      { text: "Innovationsprojekte starten", score: 2, next: "5a" },
+      { text: "Neue Märkte erschließen", score: 1, next: "5b" },
+      { text: "Risiken eingehen", score: -1, next: "5c" }
+    ]
+  },
+  "4z": {
+    question: "Runde 4z: Priorisierung anderer Projekte zeigt erste Erfolge. Wie gehst du vor?",
+    options: [
+      { text: "Strategisch investieren", score: 2, next: "5d" },
+      { text: "Team neu organisieren", score: 1, next: "5e" },
+      { text: "Nachhaltige Planung einleiten", score: 1, next: "5f" }
+    ]
+  },
+  "4aa": {
+    question: "Runde 4aa: Der Status Quo birgt Risiken. Wie entscheidest du dich?",
+    options: [
+      { text: "Kritische Projekte überdenken", score: 2, next: "5g" },
+      { text: "Auf Nummer sicher gehen", score: 1, next: "5h" },
+      { text: "Risiken in Kauf nehmen", score: -1, next: "5i" }
+    ]
+  },
+  // Runde 5 – Finale Knoten (Beispiele für Endpunkte)
   "5a": {
     question: "Runde 5a (Ende): Deine Expansion war ein voller Erfolg! 🎉",
     final: true,
@@ -154,21 +252,125 @@ const gameData = {
     scoreMessage: "Trotz Rückschlägen steigst du auf!",
     alternativeMessage: "Die Verluste waren zu hoch – du wurdest gefeuert."
   },
-  // Weitere finale Knoten (5d bis 5i etc.) können analog ergänzt werden.
+  "5d": {
+    question: "Runde 5d (Ende): Deine Loyalitätsprogramme verbessern das Betriebsklima.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Teamplayer und strategisch – du bist der CEO!",
+    alternativeMessage: "Trotz Bemühungen reichte der Erfolg nicht."
+  },
+  "5e": {
+    question: "Runde 5e (Ende): Neue Vertriebswege führen zu einem Umsatzboom.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Innovation zahlt sich aus – du steigst auf!",
+    alternativeMessage: "Der Umsatz war nicht ausreichend – das Ergebnis blieb aus."
+  },
+  "5f": {
+    question: "Runde 5f (Ende): Kostensenkungen schadet langfristig dem Unternehmen.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Trotz Schwierigkeiten behältst du den Posten!",
+    alternativeMessage: "Langfristig zu riskant – du wurdest entlassen."
+  },
+  "5g": {
+    question: "Runde 5g (Ende): Externe Berater brachten frischen Wind.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Innovativ und entscheidungsfreudig – du bist der CEO!",
+    alternativeMessage: "Der frische Wind reichte nicht – Führung blieb aus."
+  },
+  "5h": {
+    question: "Runde 5h (Ende): Internes Feedback führte zu einer soliden Umstrukturierung.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Teamgeist und Weitblick sichern den Erfolg – du bist der CEO!",
+    alternativeMessage: "Die Maßnahmen reichten nicht – du verlierst die Position."
+  },
+  "5i": {
+    question: "Runde 5i (Ende): Dein Kurswechsel brachte unerwartete Wendungen.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Anpassungsfähigkeit zahlt sich aus – CEO of the Year!",
+    alternativeMessage: "Der Wechsel war zu riskant – das Vertrauen sank."
+  },
+  "5j": {
+    question: "Runde 5j (Ende): Deine Expansion in neue Märkte war ein Erfolg! 🎉",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Herzlichen Glückwunsch, du bist ein innovativer CEO!",
+    alternativeMessage: "Trotz Expansion reichte der Erfolg nicht – Entlassung bleibt."
+  },
+  "5k": {
+    question: "Runde 5k (Ende): Die Restrukturierung führte zu Stabilität.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Stabile Führung zahlt sich aus – du bist der CEO!",
+    alternativeMessage: "Die Restrukturierung brachte nicht den erhofften Erfolg."
+  },
+  "5l": {
+    question: "Runde 5l (Ende): Aggressive Akquisitionen erwiesen sich als riskant.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Trotz Risiken zeigt dein Durchhaltevermögen Wirkung – CEO!",
+    alternativeMessage: "Die Risiken waren zu groß – das Unternehmen scheiterte."
+  },
+  "5m": {
+    question: "Runde 5m (Ende): Dein organisches Wachstum führt zu nachhaltigem Erfolg.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Nachhaltiger Erfolg macht dich zum CEO!",
+    alternativeMessage: "Erfolg blieb aus – das Unternehmen zittert."
+  },
+  "5n": {
+    question: "Runde 5n (Ende): Investitionen in neue Technologien zahlen sich aus.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Innovation triumphiert – CEO of the Year!",
+    alternativeMessage: "Die Technologiebereitschaft reichte nicht."
+  },
+  "5o": {
+    question: "Runde 5o (Ende): Risiken wurden minimiert, aber Chancen verpasst.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Konservativer Erfolg führt zur Chefetage!",
+    alternativeMessage: "Wenig Risiko, wenig Belohnung – der Titel bleibt unerreicht."
+  },
+  "5p": {
+    question: "Runde 5p (Ende): Mit der Reserve klug investiert, sicherst du den Fortbestand.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Vorausschauend und strategisch – du bist der CEO!",
+    alternativeMessage: "Die Reserve half nicht genug – es kam zum Rückschlag."
+  },
+  "5q": {
+    question: "Runde 5q (Ende): Mehr Liquidität sichert den Fortbestand deines Unternehmens.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Liquiditätsstark und erfolgreich – CEO des Jahres!",
+    alternativeMessage: "Die zusätzliche Liquidität reichte nicht – das Risiko blieb hoch."
+  },
+  "5r": {
+    question: "Runde 5r (Ende): Risikospiel mit der Reserve bringt das Unternehmen ins Wanken.",
+    final: true,
+    scoreThreshold: 8,
+    scoreMessage: "Mut zum Risiko führt – du kletterst an die Spitze!",
+    alternativeMessage: "Ohne ausreichende Absicherung scheitert der Kurs – Entlassung."
+  }
 };
 
 const CEOGame = () => {
-  // Zustand für den Spielstart (Intro-Seite) und den Spielverlauf
+  // Zustand: Intro-Seite, aktueller Knoten, Score
   const [gameStarted, setGameStarted] = useState(false);
   const [currentId, setCurrentId] = useState("1");
   const [score, setScore] = useState(0);
 
-  // Startet das Spiel und blendet die Einführungsseite aus
+  // Spielstart: Übergang von der Einführungsseite zum Spiel
   const startGame = () => {
     setGameStarted(true);
   };
 
-  // Wird eine Option gewählt, wird der Score aktualisiert und zum nächsten Knoten gewechselt
+  // Beim Klicken auf eine Option wird der Score angepasst und der nächste Knoten geladen
   const handleOptionClick = (option) => {
     setScore(prev => prev + option.score);
     if (gameData[option.next]) {
@@ -176,7 +378,7 @@ const CEOGame = () => {
     }
   };
 
-  // Falls das Spiel noch nicht gestartet wurde, zeige die Einführungsseite
+  // Intro-Seite anzeigen, falls das Spiel noch nicht gestartet wurde
   if (!gameStarted) {
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px', textAlign: 'center' }}>
@@ -185,8 +387,8 @@ const CEOGame = () => {
           In diesem Spiel triffst du als angehender CEO schwierige Entscheidungen, die über den Erfolg oder Misserfolg deines Unternehmens entscheiden.
         </p>
         <p>
-          Jede Entscheidung beeinflusst deinen <strong>Score</strong>: Falsche Entscheidungen senken ihn, während kluge Züge ihn erhöhen.
-          Nach 5 Runden zeigt dir dein Score, ob du als <em>CEO of the Year</em> gefeiert wirst oder ob du entlassen wirst. 
+          Jede Entscheidung verändert deinen <strong>Score</strong>: Kluge Züge erhöhen ihn, falsche Entscheidungen senken ihn.
+          Nach 5 Runden entscheidet dein Score, ob du als <em>CEO of the Year</em> gefeiert wirst oder ob der Abschied aussteht. 
         </p>
         <p>
           Bist du bereit, die Herausforderungen eines echten CEOs anzunehmen? 🚀
@@ -201,10 +403,10 @@ const CEOGame = () => {
     );
   }
 
-  // Hole den aktuellen Knoten aus dem Spielbaum
+  // Aktueller Knoten
   const currentNode = gameData[currentId];
 
-  // Wenn ein finaler Knoten erreicht ist, zeige das Endergebnis an
+  // Endbildschirm anzeigen, falls ein finaler Knoten erreicht wurde
   if (currentNode.final) {
     const finalMessage = score >= currentNode.scoreThreshold ? currentNode.scoreMessage : currentNode.alternativeMessage;
     return (
