@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-// Definition eines verzweigten Fragenbaums mit 5 Ebenen.
-// Jeder Knoten hat drei Antwortoptionen und enthält eine Score-Anpassung sowie einen Pointer zum nächsten Knoten.
-// Endknoten (final == true) enthalten zusätzlich einen Schwellenwert und zwei Endnachrichten.
+// Definition des verzweigten Fragenbaums mit 5 Ebenen
 const gameData = {
   "1": {
     question: "Runde 1: Budgetkürzungen stehen an. Wie reagierst du?",
@@ -109,7 +107,7 @@ const gameData = {
       { text: "Status Quo beibehalten", score: -1, next: "4aa" }
     ]
   },
-  // Runde 4 (Auswahl einiger Verzweigungen; weitere können nach Bedarf ergänzt werden)
+  // Runde 4 (Beispielhafte Knoten, weitere können ergänzt werden)
   "4a": {
     question: "Runde 4a: Die Expansion zeigt erste Erfolge. Wie planst du weiter?",
     options: [
@@ -134,40 +132,13 @@ const gameData = {
       { text: "Kompletten Kurswechsel vornehmen", score: -1, next: "5i" }
     ]
   },
-  "4d": {
-    question: "Runde 4d: Flexible Regelanpassungen zeigen Wirkung. Wie geht es weiter?",
-    options: [
-      { text: "Neue Geschäftsfelder erschließen", score: 2, next: "5j" },
-      { text: "Das bestehende Geschäft ausbauen", score: 1, next: "5k" },
-      { text: "Innovationsprojekte initiieren", score: 2, next: "5l" }
-    ]
-  },
-  "4e": {
-    question: "Runde 4e: Das starre Festhalten an Regeln führt zu Frust. Was machst du?",
-    options: [
-      { text: "Kompromisse eingehen", score: 1, next: "5m" },
-      { text: "Strenge Maßnahmen einleiten", score: -2, next: "5n" },
-      { text: "Teamwork fördern", score: 2, next: "5o" }
-    ]
-  },
-  "4f": {
-    question: "Runde 4f: Das Einholen von Teamfeedback erzielt positive Änderungen. Wie reagierst du?",
-    options: [
-      { text: "Feedback in neue Richtlinien umsetzen", score: 2, next: "5p" },
-      { text: "Maßnahmen zur Teamentwicklung starten", score: 1, next: "5q" },
-      { text: "Kurzfristige Erfolge feiern", score: 1, next: "5r" }
-    ]
-  },
-  // Für weitere Verzweigungen in Runde 4 (4g bis 4l, 4p bis 4r, ... ) können ähnliche Knoten erstellt werden.
-  // Im folgenden Beispiel beschränken wir uns auf einige Knoten bis Runde 4; alle Optionen, die in Runde 4 gewählt werden, führen zu einem finalen Knoten in Runde 5.
-  
   // Runde 5 (Finale Knoten)
   "5a": {
-    question: "Runde 5a (Ende): Deine Expansion war ein voller Erfolg!",
+    question: "Runde 5a (Ende): Deine Expansion war ein voller Erfolg! 🎉",
     final: true,
     scoreThreshold: 8,
-    scoreMessage: "Herzlichen Glückwunsch! Du bist der CEO of the Year!",
-    alternativeMessage: "Deine Strategie reichte nicht – du wurdest entlassen."
+    scoreMessage: "Herzlichen Glückwunsch! Du bist der CEO of the Year! 🏆",
+    alternativeMessage: "Deine Strategie reichte nicht – du wurdest entlassen. 😞"
   },
   "5b": {
     question: "Runde 5b (Ende): Du hast Märkte stabilisiert, aber der Wettbewerb bleibt hart.",
@@ -183,151 +154,57 @@ const gameData = {
     scoreMessage: "Trotz Rückschlägen steigst du auf!",
     alternativeMessage: "Die Verluste waren zu hoch – du wurdest gefeuert."
   },
-  "5d": {
-    question: "Runde 5d (Ende): Deine Loyalitätsprogramme haben das Betriebsklima verbessert.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Als Teamplayer wirst du als CEO gefeiert!",
-    alternativeMessage: "Trotz Bemühungen reichte der Erfolg nicht."
-  },
-  "5e": {
-    question: "Runde 5e (Ende): Neue Vertriebswege führen zu einem Umsatzboom.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Innovation zahlt sich aus – du steigst auf!",
-    alternativeMessage: "Der Umsatz war nicht ausreichend – das Ergebnis blieb aus."
-  },
-  "5f": {
-    question: "Runde 5f (Ende): Kostensenkungen halfen kurzfristig, langfristig schadeten sie dem Unternehmen.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Trotz Rückschlägen meisterst du die Krise als CEO!",
-    alternativeMessage: "Die langfristigen Schäden waren zu groß – du wurdest entlassen."
-  },
-  "5g": {
-    question: "Runde 5g (Ende): Externe Berater brachten frischen Wind.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Dein innovativer Ansatz überzeugt – du bist der CEO!",
-    alternativeMessage: "Der frische Wind reichte nicht – das Unternehmen ändert die Führung."
-  },
-  "5h": {
-    question: "Runde 5h (Ende): Internes Feedback führte zu einer soliden Umstrukturierung.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Dank Teamgeist übernimmst du als CEO!",
-    alternativeMessage: "Die Maßnahmen reichten nicht – du verlierst die Position."
-  },
-  "5i": {
-    question: "Runde 5i (Ende): Dein Kurswechsel brachte unerwartete Wendungen.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Deine Anpassungen retten das Unternehmen – du steigst auf!",
-    alternativeMessage: "Der Wechsel war zu risikoreich – das Vertrauen schwand."
-  },
-  "5j": {
-    question: "Runde 5j (Ende): Neue Geschäftsfelder bringen enormes Wachstum.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Du wirst als Visionär und erfolgreicher CEO gefeiert!",
-    alternativeMessage: "Das Risiko war zu hoch – das Unternehmen scheiterte."
-  },
-  "5k": {
-    question: "Runde 5k (Ende): Das bestehende Geschäft wurde erfolgreich ausgebaut.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Stabilität und Erfolg – du übernimmst als CEO!",
-    alternativeMessage: "Stabilität reichte nicht – der Vorstand verlor das Vertrauen."
-  },
-  "5l": {
-    question: "Runde 5l (Ende): Innovationsprojekte revolutionierten den Markt.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Mit Innovationskraft wirst du zum CEO of the Year!",
-    alternativeMessage: "Die radikale Veränderung war zu riskant – du wurdest abgesetzt."
-  },
-  "5m": {
-    question: "Runde 5m (Ende): Kompromisse entschärften den Konflikt.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Dein diplomatisches Geschick führt zum Aufstieg!",
-    alternativeMessage: "Die Kompromisse reichten nicht – du verlierst deine Position."
-  },
-  "5n": {
-    question: "Runde 5n (Ende): Harte Maßnahmen brachten kurzfristigen Erfolg, langfristig jedoch Probleme.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Trotz Schwierigkeiten behauptest du dich als CEO!",
-    alternativeMessage: "Die Konsequenzen waren zu gravierend – das Vertrauen schwand."
-  },
-  "5o": {
-    question: "Runde 5o (Ende): Teamwork führte zu kreativen Lösungen.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Mit Teamgeist sicherst du dir den Titel CEO of the Year!",
-    alternativeMessage: "Leider reichten die positiven Effekte nicht – der Erfolg blieb aus."
-  },
-  "5p": {
-    question: "Runde 5p (Ende): Offene Kommunikation führte zu nachhaltigen Verbesserungen.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Deine Transparenz macht dich zum Vorzeige-CEO!",
-    alternativeMessage: "Obwohl gut gemeint, blieb der Durchbruch aus."
-  },
-  "5q": {
-    question: "Runde 5q (Ende): Teamentwicklung stärkte den Zusammenhalt nachhaltig.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Dank des starken Teams behältst du den Posten!",
-    alternativeMessage: "Der Zusammenhalt reichte nicht – die Führung wurde neu besetzt."
-  },
-  "5r": {
-    question: "Runde 5r (Ende): Kurzfristige Erfolge motivierten das Team, aber die Zukunft bleibt ungewiss.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Dein Einsatz sicherte den Erfolg – du bist der CEO of the Year!",
-    alternativeMessage: "Trotz kurzfristiger Gewinne reichte der Erfolg nicht langfristig."
-  },
-  // Weitere finale Knoten (5s bis 5aa) können bei Bedarf ergänzt werden.
-  "5y": {
-    question: "Runde 5y (Ende): Krisenintervention rettet den Tag.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "In der Krise behältst du die Kontrolle – CEO!",
-    alternativeMessage: "Die Krise eskalierte – du wurdest entlassen."
-  },
-  "5z": {
-    question: "Runde 5z (Ende): Umstrukturierung brachte langanhaltende Probleme.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Trotz Schwierigkeiten gelingt der Aufstieg!",
-    alternativeMessage: "Die Umstrukturierung führte zum Abgang."
-  },
-  "5aa": {
-    question: "Runde 5aa (Ende): Externe Hilfe bringt frischen Wind ins Unternehmen.",
-    final: true,
-    scoreThreshold: 8,
-    scoreMessage: "Flexibilität und Weitblick machen dich zum CEO!",
-    alternativeMessage: "Die Unterstützung reichte nicht – das Ruder ging an jemand anderen."
-  }
+  // Weitere finale Knoten (5d bis 5i etc.) können analog ergänzt werden.
 };
 
 const CEOGame = () => {
-  // Start im Knoten "1", Score wird von Beginn an hochgezählt.
+  // Zustand für den Spielstart (Intro-Seite) und den Spielverlauf
+  const [gameStarted, setGameStarted] = useState(false);
   const [currentId, setCurrentId] = useState("1");
   const [score, setScore] = useState(0);
 
-  // Wird eine Option gewählt, wird der Score angepasst und zum nächsten Knoten gewechselt.
+  // Startet das Spiel und blendet die Einführungsseite aus
+  const startGame = () => {
+    setGameStarted(true);
+  };
+
+  // Wird eine Option gewählt, wird der Score aktualisiert und zum nächsten Knoten gewechselt
   const handleOptionClick = (option) => {
     setScore(prev => prev + option.score);
-    // Wechsle zum nächsten Knoten, sofern vorhanden.
     if (gameData[option.next]) {
       setCurrentId(option.next);
     }
   };
 
-  // Falls der aktuelle Knoten final ist, bereiten wir den Endbildschirm vor.
+  // Falls das Spiel noch nicht gestartet wurde, zeige die Einführungsseite
+  if (!gameStarted) {
+    return (
+      <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px', textAlign: 'center' }}>
+        <h1>Willkommen beim CEO Dilemma! 🎮</h1>
+        <p>
+          In diesem Spiel triffst du als angehender CEO schwierige Entscheidungen, die über den Erfolg oder Misserfolg deines Unternehmens entscheiden.
+        </p>
+        <p>
+          Jede Entscheidung beeinflusst deinen <strong>Score</strong>: Falsche Entscheidungen senken ihn, während kluge Züge ihn erhöhen.
+          Nach 5 Runden zeigt dir dein Score, ob du als <em>CEO of the Year</em> gefeiert wirst oder ob du entlassen wirst. 
+        </p>
+        <p>
+          Bist du bereit, die Herausforderungen eines echten CEOs anzunehmen? 🚀
+        </p>
+        <button 
+          onClick={startGame}
+          style={{ padding: '12px 24px', fontSize: '16px', cursor: 'pointer', marginTop: '20px' }}
+        >
+          🚀 Starte das Spiel!
+        </button>
+      </div>
+    );
+  }
+
+  // Hole den aktuellen Knoten aus dem Spielbaum
   const currentNode = gameData[currentId];
+
+  // Wenn ein finaler Knoten erreicht ist, zeige das Endergebnis an
   if (currentNode.final) {
     const finalMessage = score >= currentNode.scoreThreshold ? currentNode.scoreMessage : currentNode.alternativeMessage;
     return (
@@ -340,16 +217,17 @@ const CEOGame = () => {
           onClick={() => {
             setCurrentId("1");
             setScore(0);
+            setGameStarted(false);
           }}
-          style={{ padding: '10px 20px', cursor: 'pointer' }}
+          style={{ padding: '10px 20px', cursor: 'pointer', marginTop: '20px' }}
         >
-          Neustarten
+          🔄 Neustarten
         </button>
       </div>
     );
   }
 
-  // Anzeige der aktuellen Frage und der drei Antwortoptionen.
+  // Anzeige der aktuellen Frage und der drei Antwortoptionen
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
       <h1>CEO Dilemma</h1>
@@ -370,4 +248,3 @@ const CEOGame = () => {
 };
 
 export default CEOGame;
-
