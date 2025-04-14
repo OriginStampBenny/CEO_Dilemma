@@ -4,7 +4,29 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const scenarios = [
-  // ... (die Szenarien bleiben unverändert)
+  {
+    id: 1,
+    title: "Runde 1 – Die schnelle Abkürzung",
+    description:
+      "Ein Investor bietet 2 Mio. CHF – aber nur, wenn ihr Kundendaten für Marketing analysiert, ohne die Kunden zu informieren.",
+    choices: [
+      {
+        label: "A) Deal annehmen.",
+        effect: "Reputation -1, Finanzen +2, Moral -1",
+        score: { finance: 2, ethics: -1, morale: -1 },
+      },
+      {
+        label: "B) Nachverhandeln.",
+        effect: "Reputation +1, Finanzen 0, Moral +1",
+        score: { finance: 0, ethics: 1, morale: 1 },
+      },
+      {
+        label: "C) Ablehnen.",
+        effect: "Reputation +2, Finanzen -1, Moral +2",
+        score: { finance: -1, ethics: 2, morale: 2 },
+      },
+    ],
+  },
 ];
 
 export default function StartupDilemmaGame() {
